@@ -1,10 +1,3 @@
-"""
-Prompts for Knowledge Graph Builder
-
-This module contains all the prompts used in the GraphBuilder class,
-organized in a structured dictionary format for easy management and maintenance.
-Each prompt has a "system" part (rules and guidelines) and a "user" part (input placeholders).
-"""
 
 PROMPTS = {}
 
@@ -33,37 +26,6 @@ PROMPTS["rerank_chunk"] = {
         "Return only the JSON object, no other text."
     )
 }
-
-
-# -------------------------------------------------------------------------
-# Prompts for Path Selection
-# -------------------------------------------------------------------------
-
-PROMPTS["select_path"] = {
-    "system": (
-        "You are a path selection assistant for graph-based retrieval. "
-        "Given a query and a list of explored paths (each containing connected documents), "
-        'select the most relevant paths for answering the query. '
-        'Return only a JSON object with a \'ranking\' field.'
-    ),
-
-    "user": (
-        "You are a path selection system. Given a query and a list of explored paths "
-        "through a knowledge graph, select the paths that are most relevant "
-        "for answering the query.\n\n"
-        "Query: {query}\n\n"
-        "Paths:\n{paths_text}\n\n"
-        "Each path is a sequence of connected documents that form a reasoning chain.\n\n"
-        "Please select and rank the paths from most relevant to least relevant "
-        "for answering the query.\n\n"
-        'You must return a valid JSON object with a "ranking" field containing an array of '
-        "path numbers (1-{num_paths}) in order of relevance, from most relevant to least relevant.\n\n"
-        'Example format:\n{{"ranking": [3, 1, 5, 2, 4]}}\n\n'
-        "This means Path 3 is most relevant, followed by Path 1, then Path 5, etc.\n\n"
-        "Return only the JSON object, no other text."
-    )
-}
-
 
 # -------------------------------------------------------------------------
 # Prompts for Chunk Filtering
