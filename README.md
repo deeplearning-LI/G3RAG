@@ -1,0 +1,1 @@
+The code in this repository is simplified while retaining the core functions of G<sup>3</sup>RAG. Datasets are not included, but the dataset format is clearly specified. More detailed construction and inference scripts, along with parameter configurations, will be made publicly available after the paper is published.
