@@ -33,8 +33,6 @@ class DocumentNode:
 
 class GeoGainGraph:
     """
-    GeoGain Graph: Similarity-based Information Gain Graph with Document nodes only.
-
     Graph Construction Algorithm (Asymmetric IG):
         1. Compute pairwise cosine similarity matrix among all document embeddings.
         2. Compute Local Density for each node: the mean similarity to all other nodes.
