@@ -64,8 +64,8 @@ class GeoGainGraph:
                  api_key: str = None,
                  base_url: str = "http://localhost:33333/v1",
                  model_name: str = "Llama-3.3-70B",
-                 sim_min: float = 0.3,
-                 sim_max: float = 0.9,
+                 sim_min: float = 0.1,
+                 sim_max: float = 0.7,
                  beta: float = 1.0,
                  logger=None):
 
@@ -424,13 +424,10 @@ if __name__ == "__main__":
         embedding_model="qwen-max",        # replace with your embedding model
         embedding_url="http://localhost:2222/v1",  # replace with your embedding API URL
         workdir=WORKDIR,
-        emb_batch_size=128,
+        emb_batch_size=64,
         api_key="your-api-key",            # replace with your LLM API key
         base_url="http://localhost:33333/v1",       # replace with your LLM API URL
         model_name="Llama-3.3-70B",       # replace with your LLM model name
-        sim_min=0.1,
-        sim_max=0.7,
-        beta=0.1,
         logger=logger
     )
 
@@ -452,8 +449,8 @@ if __name__ == "__main__":
     result = graph.retrieve_exact_diffusion(
         query=query,
         seed_k=2,
-        qa_top_k=3,
-        retrieve_topk=5,
+        qa_top_k=5,
+        retrieve_topk=10,
         node_rerank=False
     )
 
