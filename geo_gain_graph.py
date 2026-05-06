@@ -251,10 +251,6 @@ class GeoGainGraph:
         """
         One-step Exact Diffusion with strict seed masking.
 
-        Always returns:
-        - A portion of seeds (min(seed_k, qa_top_k // 2)) as pure direct evidence
-        - Remaining slots filled with diffused (1-hop) indirect evidence
-
         Algorithm:
             1. Calculate cosine similarity between query and all documents.
             2. Retrieve top-k candidates and (optionally) rerank them via LLM to get highly pure seeds.
