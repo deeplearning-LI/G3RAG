@@ -33,7 +33,7 @@ class DocumentNode:
 
 class GeoGainGraph:
     """
-    Graph Construction Algorithm (Asymmetric IG):
+    Graph Construction Algorithm:
         1. Compute pairwise cosine similarity matrix among all document embeddings.
         2. Compute Local Density for each node: the mean similarity to all other nodes.
            Higher density means the node contains very general/common information.
@@ -57,10 +57,10 @@ class GeoGainGraph:
 
     def __init__(self,
                  emb_api_key: str,
-                 embedding_model: str = "qwen-max",
+                 embedding_model: str = "nv-embed-v2",
                  embedding_url: str = "https://dashscope.aliyuncs.com/compatible-mode/v1/embeddings",
-                 emb_batch_size: int = 16,
-                 workdir: str = "./DB/sim_ig_graph",
+                 emb_batch_size: int = 4,
+                 workdir: str = "./DB/g3_graph",
                  api_key: str = None,
                  base_url: str = "http://localhost:33333/v1",
                  model_name: str = "Llama-3.3-70B",
@@ -144,8 +144,6 @@ class GeoGainGraph:
 
     def build_graph(self):
         """
-        Build the document-document information gain graph using Asymmetric IG method.
-
         Steps:
             1. Compute pairwise cosine similarity matrix among all document embeddings.
             2. Compute Local Density (average similarity to all other nodes).
@@ -421,10 +419,10 @@ if __name__ == "__main__":
 
     graph = GeoGainGraph(
         emb_api_key="your-api-key",       # replace with your API key
-        embedding_model="qwen-max",        # replace with your embedding model
+        embedding_model="nv-embed-v2",        # replace with your embedding model
         embedding_url="http://localhost:2222/v1",  # replace with your embedding API URL
         workdir=WORKDIR,
-        emb_batch_size=64,
+        emb_batch_size=4,
         api_key="your-api-key",            # replace with your LLM API key
         base_url="http://localhost:33333/v1",       # replace with your LLM API URL
         model_name="Llama-3.3-70B",       # replace with your LLM model name
