@@ -1,7 +1,7 @@
 # 🌐 Geometric Gain Graph
 
 > **Geometric Gain Graph: Zero-Token Graph Construction for Multi-Hop RAG**  
-> 📝 A zero-token graph construction method for Multi-Hop Retrieval-Augmented Generation (NeurIPS 2026 Submission).
+> 📝 A zero-token graph construction method for Multi-Hop Retrieval-Augmented Generation (NeurIPS 2026 Poster).
 
 ## 📂 Project Structure
 
